@@ -1,0 +1,14 @@
+<div class="app-container">
+  <app-navigation 
+    [activeView]="currentView()" 
+    (viewChange)="onViewChange($event)">
+  </app-navigation>
+  
+  <main class="main-content">
+    @if (currentView() === 'map') {
+      <app-weather-map></app-weather-map>
+    } @else if (currentView() === 'forecast') {
+      <app-forecast></app-forecast>
+    }
+  </main>
+</div>

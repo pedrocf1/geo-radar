@@ -1,0 +1,27 @@
+<nav class="navigation">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <h1>🌤️ Geo Radar</h1>
+      <p>Netherlands Weather Dashboard</p>
+    </div>
+    
+    <div class="nav-buttons">
+      <button 
+        [class.active]="activeView === 'map'"
+        (click)="switchView('map')"
+        class="nav-button">
+        🗺️ Weather Map
+      </button>
+      <button 
+        [class.active]="activeView === 'forecast'"
+        (click)="switchView('forecast')"
+        class="nav-button">
+        📊 Forecast
+      </button>
+    </div>
+
+    <div class="nav-info">
+      <small>Data from Buienradar.nl</small>
+    </div>
+  </div>
+</nav>

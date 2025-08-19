@@ -1,0 +1,64 @@
+<div class="map-container">
+  <aside class="controls">
+    <h2>Netherlands Weather Data</h2>
+    <div class="data-type-selector">
+      <button 
+        [class.active]="selectedDataType === DataType.temperature"
+        (click)="selectDataType(DataType.temperature)"
+        class="control-button">
+        {{ type_label[DataType.temperature] }}
+      </button>
+      
+      <!-- Wind options group -->
+      <div class="wind-group">
+        <h4>Wind Data</h4>
+        <button 
+          [class.active]="selectedDataType === DataType.wind"
+          (click)="selectDataType(DataType.wind)"
+          class="control-button wind-button">
+          {{ type_label[DataType.wind] }}
+        </button>
+        <button 
+          [class.active]="selectedDataType === DataType.windspeed"
+          (click)="selectDataType(DataType.windspeed)"
+          class="control-button wind-button">
+          {{ type_label[DataType.windspeed] }}
+        </button>
+        <button 
+          [class.active]="selectedDataType === DataType.winddirection"
+          (click)="selectDataType(DataType.winddirection)"
+          class="control-button wind-button">
+          {{ type_label[DataType.winddirection] }}
+        </button>
+      </div>
+      
+      <button 
+        [class.active]="selectedDataType === DataType.pressure"
+        (click)="selectDataType(DataType.pressure)"
+        class="control-button">
+        {{ type_label[DataType.pressure] }}
+      </button>
+    </div>
+    <div class="legend" *ngIf="selectedDataType">
+      <h3>{{ type_label[selectedDataType] }} Legend</h3>
+      <div class="legend-items">
+        <div *ngFor="let item of getLegendItems()" class="legend-item">
+          <div class="legend-color" [style.background-color]="item.color"></div>
+          <span>{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div #mapContainer class="map" id="weather-map"></div>
+  <div class="info-panel" *ngIf="selectedStation()">
+    <h3>{{ selectedStation()!.stationname }}</h3>
+    <p><strong>Region:</strong> {{ selectedStation()!.regio }}</p>
+    <p><strong>Temperature:</strong> {{ selectedStation()!.temperatureInfo }}</p>
+    <p><strong>Wind:</strong> {{ selectedStation()!.windInfo }}</p>
+    <p *ngIf="showAirPressure()"><strong>Air Pressure:</strong> {{ selectedStation()!.airpressure }} hPa</p>
+    <p><strong>Humidity:</strong> {{ selectedStation()!.humidity }}%</p>
+    <p><strong>Weather:</strong> {{ selectedStation()!.weatherdescription }}</p>
+    <p><strong>Last Update:</strong> {{ selectedStation()!.parsedTimestamp }}</p>
+    <button (click)="closeInfoPanel()" class="close-button">×</button>
+  </div>
+</div>

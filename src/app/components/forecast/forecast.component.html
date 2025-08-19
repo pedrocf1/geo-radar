@@ -1,0 +1,61 @@
+<div class="forecast-container">
+  <div class="today-weather" *ngIf="weatherReport">
+    <h2>Today's Weather</h2>
+    <div class="weather-summary">
+      <h3>{{ weatherReport.title }}</h3>
+      <p>{{ weatherReport.summary }}</p>
+      <div class="author-info">
+        <small>By {{ weatherReport.author }} - {{ weatherReport.formattedPublishDate }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="forecast-section">
+    <h2>5-Day Forecast</h2>
+    <div class="forecast-cards">
+      <div *ngFor="let day of forecast; let i = index" 
+           class="forecast-card" 
+           [class.today]="i === 0">
+        <div class="day-header">
+          <h3>{{ formatForecastDay(day.day, i === 0) }}</h3>
+          <img [src]="day.fullIconUrl" [alt]="day.weatherdescription" class="weather-icon">
+        </div>
+        
+        <div class="temperature-info">
+          <div class="temp-range">
+            <span class="temp-max">{{ day.maxtemperature }}°</span>
+            <span class="temp-min">{{ day.mintemperature }}°</span>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <p class="weather-desc">{{ day.weatherdescription }}</p>
+          
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="icon">🌧️</span>
+              <span>{{ day.rainChance }}%</span>
+            </div>
+            <div class="detail-item">
+              <span class="icon">☀️</span>
+              <span>{{ day.sunChance }}%</span>
+            </div>
+            <div class="detail-item">
+              <span class="icon">💨</span>
+              <span>{{ day.wind }} Bft {{ day.windDirection }}</span>
+            </div>
+            <div class="detail-item" *ngIf="day.mmRainMax > 0">
+              <span class="icon">💧</span>
+              <span>{{ day.mmRainMin }}-{{ day.mmRainMax }}mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detailed-forecast" *ngIf="weatherReport">
+    <h2>Detailed Forecast</h2>
+    <div class="forecast-text" [innerHTML]="formatForecastText(weatherReport.text)"></div>
+  </div>
+</div>

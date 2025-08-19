@@ -1,0 +1,179 @@
+.map-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.controls h2 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.data-type-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.control-button {
+  padding: 10px 15px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.control-button:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.control-button.active {
+  background: #007cba;
+  color: white;
+  border-color: #007cba;
+}
+
+.wind-group {
+  margin: 10px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.wind-group h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+}
+
+.wind-button {
+  margin: 5px 0;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+.legend {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.legend h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.info-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.info-panel h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  padding-right: 20px;
+}
+
+.info-panel p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: #f0f0f0;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    position: relative;
+    max-width: none;
+    margin: 10px;
+    height: auto;
+  }
+
+  .info-panel {
+    position: relative;
+    max-width: none;
+    margin: 10px;
+    top: auto;
+    right: auto;
+  }
+
+  .map-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .map {
+    height: 500px;
+  }
+}
