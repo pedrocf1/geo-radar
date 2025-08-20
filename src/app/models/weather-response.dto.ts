@@ -20,14 +20,12 @@ export class ForecastDayDTO implements ForecastDay {
   iconurl: string;
   fullIconUrl: string;
   
-  // Enhanced properties
   formattedDate: string;
   temperatureRange: string;
   rainForecast: string;
   windInfo: string;
 
   constructor(forecastDay: ForecastDay) {
-    // Copy all original properties
     this.day = forecastDay.day;
     this.mintemperature = forecastDay.mintemperature;
     this.maxtemperature = forecastDay.maxtemperature;
@@ -45,7 +43,6 @@ export class ForecastDayDTO implements ForecastDay {
     this.iconurl = forecastDay.iconurl;
     this.fullIconUrl = forecastDay.fullIconUrl;
 
-    // Enhanced computed properties
     this.formattedDate = this.formatForecastDate(forecastDay.day);
     this.temperatureRange = `${forecastDay.mintemperature}° - ${forecastDay.maxtemperature}°`;
     this.rainForecast = this.formatRainForecast(forecastDay.rainChance, forecastDay.mmRainMin, forecastDay.mmRainMax);
@@ -76,12 +73,10 @@ export class WeatherReportDTO implements WeatherReport {
   author: string;
   authorbio: string;
   
-  // Enhanced properties
   formattedPublishDate: string;
   shortSummary: string;
 
   constructor(weatherReport: WeatherReport) {
-    // Copy all original properties
     this.published = weatherReport.published;
     this.title = weatherReport.title;
     this.summary = weatherReport.summary;
@@ -89,7 +84,6 @@ export class WeatherReportDTO implements WeatherReport {
     this.author = weatherReport.author;
     this.authorbio = weatherReport.authorbio;
 
-    // Enhanced computed properties
     this.formattedPublishDate = this.formatPublishDate(weatherReport.published);
     this.shortSummary = this.createShortSummary(weatherReport.summary);
   }

@@ -1,6 +1,5 @@
 import { DataType, WeatherColor } from "../models/whether.model";
 
-// Weather Color Palette - Unified hexadecimal colors
 export const WEATHER_COLORS = {
   // Temperature colors (cool to warm)
   DEEP_BLUE: '#0000ff',

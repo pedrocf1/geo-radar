@@ -28,7 +28,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {
     this.weatherDataDTO$ = this.http.get<WeatherResponse>(this.API_URL).pipe(
       map(response => new WeatherResponseDTO(response)),
-      shareReplay(1) // Cache the result and replay to new subscribers
+      shareReplay(1)
     );
   }
 

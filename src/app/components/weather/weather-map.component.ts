@@ -10,7 +10,6 @@ import { DATA_TYPE_LABEL } from '../../constants/wheter.constant';
 import { WeatherColorsUtil } from '../../utils/weather-colors.util';
 import { WeatherTemplatesUtil } from '../../utils/weather-templates.util';
 
-// Fix for default markers in Leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -57,6 +56,12 @@ export class WeatherMapComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.initializeMap();
     this.loadWeatherData();
+    
+    setTimeout(() => {
+      if (this.map) {
+        this.map.invalidateSize();
+      }
+    }, 100);
   }
 
   ngOnDestroy(): void {

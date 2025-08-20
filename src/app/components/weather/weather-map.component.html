@@ -5,7 +5,8 @@
       <button 
         [class.active]="selectedDataType === DataType.temperature"
         (click)="selectDataType(DataType.temperature)"
-        class="control-button">
+        class="control-button"
+        [attr.data-type]="DataType.temperature">
         {{ type_label[DataType.temperature] }}
       </button>
       
@@ -15,19 +16,22 @@
         <button 
           [class.active]="selectedDataType === DataType.wind"
           (click)="selectDataType(DataType.wind)"
-          class="control-button wind-button">
+          class="control-button wind-button"
+          [attr.data-type]="DataType.wind">
           {{ type_label[DataType.wind] }}
         </button>
         <button 
           [class.active]="selectedDataType === DataType.windspeed"
           (click)="selectDataType(DataType.windspeed)"
-          class="control-button wind-button">
+          class="control-button wind-button"
+          [attr.data-type]="DataType.windspeed">
           {{ type_label[DataType.windspeed] }}
         </button>
         <button 
           [class.active]="selectedDataType === DataType.winddirection"
           (click)="selectDataType(DataType.winddirection)"
-          class="control-button wind-button">
+          class="control-button wind-button"
+          [attr.data-type]="DataType.winddirection">
           {{ type_label[DataType.winddirection] }}
         </button>
       </div>
@@ -35,7 +39,8 @@
       <button 
         [class.active]="selectedDataType === DataType.pressure"
         (click)="selectDataType(DataType.pressure)"
-        class="control-button">
+        class="control-button"
+        [attr.data-type]="DataType.pressure">
         {{ type_label[DataType.pressure] }}
       </button>
     </div>

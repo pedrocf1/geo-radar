@@ -42,10 +42,9 @@ export class WeatherColorsUtil {
   }
 
   static getWindDirectionColor(degrees: number): string {
-    // Normalize degrees to 0-360 range
+    // REMEMBER Normalize degrees to 0-360 range
     const normalizedDegrees = ((degrees % 360) + 360) % 360;
-    
-    // Map wind direction to colors based on compass directions
+
     if (normalizedDegrees >= 337.5 || normalizedDegrees < 22.5) return WEATHER_COLORS.LIGHTEST_BLUE; // N
     if (normalizedDegrees >= 22.5 && normalizedDegrees < 67.5) return WEATHER_COLORS.LIGHT_BLUE; // NE
     if (normalizedDegrees >= 67.5 && normalizedDegrees < 112.5) return WEATHER_COLORS.MEDIUM_BLUE; // E

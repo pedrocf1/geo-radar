@@ -26,8 +26,7 @@ export class WeatherStationDTO implements WeatherStation {
   rainFallLast24Hour: number;
   rainFallLastHour: number;
   parsedTimestamp: string;
-  
-  // Enhanced computed properties
+
   temperatureInfo: string;
   windInfo: string;
 
