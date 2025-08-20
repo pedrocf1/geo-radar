@@ -1,59 +1,144 @@
-# GeoRadar
+# Geo Radar - Netherlands Weather Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+A modern, interactive weather dashboard application built with Angular 20 that displays real-time weather data for the Netherlands using the Buienradar API.
 
-## Development server
+## 🌤️ Features
 
-To start a local development server, run:
+- **Interactive Weather Map**: Visual representation of weather stations across the Netherlands using Leaflet maps
+- **Real-time Data**: Live weather information from Buienradar API
+- **Multiple Data Views**: Toggle between different weather metrics:
+  - Temperature
+  - Humidity
+  - Wind Speed
+  - Precipitation
+  - Air Pressure
+  - And more...
+- **Weather Forecast**: 5-day weather forecast with detailed information
+- **Responsive Design**: Optimized for desktop and mobile devices
+- **Color-coded Visualization**: Weather data displayed with intuitive color schemes
 
-```bash
-ng serve
+## 🚀 Tech Stack
+
+- **Frontend**: Angular 20 (Standalone Components)
+- **Maps**: Leaflet with custom weather overlays
+- **Styling**: SCSS with modern design principles
+- **HTTP Client**: Angular HttpClient for API communication
+- **Testing**: Jasmine & Karma with code coverage
+- **Build Tools**: Angular CLI
+
+## 📦 Dependencies
+
+### Main Dependencies
+- Angular 20.1.0
+- Leaflet 1.9.4
+- RxJS 7.8.0
+- TypeScript 5.8.2
+
+### Development Dependencies
+- Angular CLI 20.1.6
+- Karma & Jasmine for testing
+- Code coverage tools
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/pedrocf1/geo-radar.git
+   cd geo-radar
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:4200`
+
+## 📝 Available Scripts
+
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm run watch` - Build in watch mode
+- `npm test` - Run unit tests
+- `npm run test:coverage` - Run tests with coverage report
+- `npm run test:ci` - Run tests in CI mode
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── forecast/          # Weather forecast component
+│   │   ├── navigation/        # Navigation component
+│   │   └── weather/           # Interactive weather map
+│   ├── constants/             # Application constants
+│   ├── models/                # TypeScript interfaces and DTOs
+│   ├── services/              # Weather API service
+│   └── utils/                 # Utility functions for colors and templates
+├── index.html
+├── main.ts
+└── styles.scss
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🌍 Data Source
 
-## Code scaffolding
+This application uses the [Buienradar API](https://data.buienradar.nl/2.0/feed/json) to fetch:
+- Real-time weather station data
+- Weather forecasts
+- Meteorological measurements across the Netherlands
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🎨 Features Overview
 
+### Weather Map Component
+- Interactive map with weather station markers
+- Real-time data visualization with color coding
+- Clickable stations for detailed information
+- Multiple weather parameter views
+
+### Forecast Component
+- 5-day weather forecast
+- Detailed daily weather reports
+- Temperature, humidity, and precipitation data
+
+### Navigation Component
+- Switch between map and forecast views
+- Data type selection for map visualization
+
+## 🧪 Testing
+
+The project includes comprehensive unit tests with:
+- Component testing
+- Service testing
+- Utility function testing
+- Code coverage reporting
+
+Run tests with:
 ```bash
-ng generate component component-name
+npm test
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+Generate coverage report:
 ```bash
-ng generate --help
+npm run test:coverage
 ```
 
-## Building
+## 🎯 Code Quality
 
-To build the project run:
+- **Prettier**: Code formatting with custom Angular HTML parser
+- **TypeScript**: Strict typing for better code quality
+- **SCSS**: Modular styling with component-scoped styles
+- **Angular Best Practices**: Standalone components, signals, and modern Angular patterns
 
+## 🚀 Deployment
+
+Build the application for production:
 ```bash
-ng build
+npm run build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
