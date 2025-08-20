@@ -47,6 +47,12 @@ export class ForecastComponent implements OnInit, OnDestroy {
     if (isToday) return 'Today';
 
     const date = new Date(day);
+    
+    // Handle invalid dates
+    if (isNaN(date.getTime())) {
+      return 'Invalid Date';
+    }
+
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
